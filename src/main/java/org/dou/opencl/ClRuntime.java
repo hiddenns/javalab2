@@ -508,13 +508,13 @@ public final class ClRuntime implements AutoCloseable {
 
     private void addArg(int index, float val) {
       try (MemoryStack stack = MemoryStack.stackPush()) {
-        validateArg(clSetKernelArg(this.getId(), index, stack.mallocFloat(1).put(val).flip()));
+        validateArg(clSetKernelArg(this.getId(), index, (ByteBuffer) stack.mallocFloat(1).put(val).flip()));
       }
     }
 
     private void addArg(int index, double val) {
       try (MemoryStack stack = MemoryStack.stackPush()) {
-        validateArg(clSetKernelArg(this.getId(), index, stack.mallocDouble(1).put(val).flip()));
+        validateArg(clSetKernelArg(this.getId(), index, (ByteBuffer) stack.mallocDouble(1).put(val).flip()));
       }
     }
 
