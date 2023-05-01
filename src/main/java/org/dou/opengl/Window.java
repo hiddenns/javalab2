@@ -82,8 +82,8 @@ public class Window implements AutoCloseable {
       glClear(CLEAR_FLAGS);
       glClearDepth(1.0F);
 
-      int w[] = {0};
-      int h[] = {0};
+      int[] w = {0};
+      int[] h = {0};
       glfwGetFramebufferSize(this.handle, w, h);
       glViewport(0, 0, w[0], h[0]);
 
